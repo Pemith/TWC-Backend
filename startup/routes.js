@@ -3,14 +3,13 @@ const bodyParser=require('body-parser');
 const express=require('express');
 const cors=require('cors');
 
-// const user=require('../Routes/userRoute');
-// const userAuth=require('../Routes/userAuthentication');
+const applicant=require('../Routes/applicantRoute');
 
 // const error=require('../middleware/error');
 
 module.exports=function(app){
     app.use(express.json());
-    // app.use('/api/user',cors(),user);
+    app.use('/career',cors(),applicant);
     // app.use('/api/user/login',cors(),userAuth);
     // app.use(error);
 }
