@@ -1,0 +1,2 @@
+{"level":"info","message":"Listeing on port 3900...","timestamp":"2022-03-15T05:19:39.564Z"}
+{"level":"info","message":"Connected to mongodb+srv://admin1:12345@democluster.rxady.mongodb.net/DemoCluster?retryWrites=true&w=majority...","timestamp":"2022-03-15T05:19:40.790Z"}

@@ -1,0 +1,6 @@
+{
+    "jwtPrivateKey":"unsecureKey",
+    "db":"mongodb+srv://admin1:12345@democluster.rxady.mongodb.net/DemoCluster?retryWrites=true&w=majority",
+    "port":"3900",
+    "requireAuth":false
+}
