@@ -30,4 +30,14 @@ router.post('/register',async(req,res) =>{
     }
 });
 
+router.get('/applicants', async(req,res) =>{
+
+    const applicant=await Applicant
+        .find()
+        .select('-__v');
+    res.send(applicant);
+});
+
+
+
 module.exports=router;
