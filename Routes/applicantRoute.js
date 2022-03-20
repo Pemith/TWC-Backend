@@ -3,6 +3,7 @@ const mongoose=require('mongoose');
 const Joi=require('joi');
 const express=require('express');
 const router=express.Router();
+const authz=require('../middleware/adminAuthorization');
 
 
 router.post('/register',async(req,res) =>{
@@ -30,11 +31,23 @@ router.post('/register',async(req,res) =>{
     }
 });
 
-router.get('/applicants', async(req,res) =>{
+router.get('/applicants',async(req,res) =>{
 
     const applicant=await Applicant
         .find()
         .select('-__v');
+    res.send(applicant);
+});
+
+router.get('/applicants/:id',async(req,res) =>{
+    const applicant=await Applicant
+        .findById(req.params.id)
+        .select('-__v');
+
+    if(!applicant){
+        return res.status(400).send('The ID was not found');
+    }
+
     res.send(applicant);
 });
 
