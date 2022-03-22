@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const winston=require('winston');
 const config=require('config');
-
+const Grid = require("gridfs-stream");
 
 require('./startup/logging')();
 require('./startup/routes')(app);
