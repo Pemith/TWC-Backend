@@ -1,4 +1,4 @@
-const {Admin}=require('../Models/admin');
+const {Admin}=require('../Models/admins');
 const bcrypt=require('bcrypt');
 const mongoose=require('mongoose');
 const Joi=require('joi');
