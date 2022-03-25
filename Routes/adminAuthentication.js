@@ -1,4 +1,4 @@
-const {Admin}=require('../Models/admin');
+const {Admin}=require('../Models/admins');
 const bcrypt=require('bcrypt');
 const mongoose=require('mongoose');
 const Joi=require('joi');
@@ -26,7 +26,7 @@ router.post('/login', async (req,res) => {
     const token=admin.generateAuthToken();
 
     res
-        .header("X-auth-token",token)
+        .header("x-auth-token",token)
         .header("access-control-expose-headers","x-auth-token")
         .send(_.pick(admin,["_id","name","email"]));
 });

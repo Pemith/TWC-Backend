@@ -49,4 +49,3 @@ function validateAdmin(adminVal){
 
 exports.Admin=admin;
 exports.validate=validateAdmin;
-
