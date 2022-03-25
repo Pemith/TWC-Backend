@@ -20,7 +20,8 @@ router.post('/register',async(req,res) =>{
 
     applicant =new Applicant({
         fullName:req.body.fullName,
-        email:req.body.email
+        email:req.body.email,
+        mobile:req.body.mobile
     });
 
     try{
@@ -31,7 +32,7 @@ router.post('/register',async(req,res) =>{
     }
 });
 
-router.get('/applicants',async(req,res) =>{
+router.get('/applicants',authz,async(req,res) =>{
 
     const applicant=await Applicant
         .find()
@@ -39,7 +40,7 @@ router.get('/applicants',async(req,res) =>{
     res.send(applicant);
 });
 
-router.get('/applicants/:id',async(req,res) =>{
+router.get('/applicants/:id',authz,async(req,res) =>{
     const applicant=await Applicant
         .findById(req.params.id)
         .select('-__v');

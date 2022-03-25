@@ -13,6 +13,11 @@ const applicantSchema=new mongoose.Schema({
         unique:true,
         lowercase:true,
         required:true
+    },
+    mobile:{
+        type:String,
+        minlength:9,
+        maxlength:10
     }
 });
 
@@ -22,7 +27,8 @@ function validateApplicant(applicant){
 
     const schema=Joi.object({
         fullName:Joi.string().required(),
-        email:Joi.string().required()
+        email:Joi.string().required(),
+        mobile:Joi.string().min(9).max(10).required()
     }).options({abortEarly:false});
 
     return schema.validate(applicant);

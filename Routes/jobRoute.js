@@ -3,8 +3,9 @@ const mongoose=require('mongoose');
 const Joi=require('joi');
 const express=require('express');
 const router=express.Router();
+const authz=require('../middleware/adminAuthorization');
 
-router.post('/job',async(req,res) =>{
+router.post('/job',authz,async(req,res) =>{
     const {error}=validate(req.body);
     if(error){
         return res.status(400).send(error.details[0].message);
